@@ -328,6 +328,8 @@ if [ "$OPT_CLEAN" = 1 ]; then
     clean_virtualenv
 fi
 
+# set -x
+
 if [ "$OPT_TEARDOWN" = "all" ]; then
     OPT_TAGS="${OPT_TAGS:+$OPT_TAGS,}teardown-all"
 elif [ "$OPT_TEARDOWN" = "virthost" ]; then

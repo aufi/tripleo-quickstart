@@ -3,6 +3,8 @@
 # for this job, but test all defaults otherwise.
 step_introspect: true
 
+undercloud_vcpu: 2
+
 # Define a single controller node and a single compute node.
 overcloud_nodes:
   - name: control_0
@@ -10,12 +12,17 @@ overcloud_nodes:
 
   - name: compute_0
     flavor: compute
+  - name: compute_1
+    flavor: compute
+  - name: compute_2
+    flavor: compute
 
 # Tell tripleo how we want things done.
 extra_args: >-
   --neutron-network-type vxlan
   --neutron-tunnel-types vxlan
   --ntp-server pool.ntp.org
+  --compute-scale 3
 
 network_isolation: true
 
